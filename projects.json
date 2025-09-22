@@ -1,0 +1,20 @@
+[
+  {
+    "title": "SAP IBP Simulation (Excel + Logic)",
+    "link": "https://github.com/your-username/ibp-simulation",
+    "blurb": "Demand planning, safety stock (95% service), ABC/XYZ, and S&OP mock.",
+    "tags": ["SAP IBP", "S&OP", "Excel"]
+  },
+  {
+    "title": "Buy Sheet → Tableau",
+    "link": "https://public.tableau.com/app/profile/yourprofile",
+    "blurb": "SQLite cleaning → Tableau dashboard for vendor reliability & demand.",
+    "tags": ["SQL", "Tableau", "ETL"]
+  },
+  {
+    "title": "HCAHPS Analysis",
+    "link": "https://public.tableau.com/app/profile/yourprofile",
+    "blurb": "National patient satisfaction insights; data cleaning + KPI cards.",
+    "tags": ["Tableau", "Analytics"]
+  }
+]
