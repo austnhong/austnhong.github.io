@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Austin Hong — Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Supply chain & analytics projects: SAP IBP, SQL, Tableau." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root { font-family: system-ui, Arial, sans-serif; }
+    body { margin: 0; line-height: 1.5; }
+    header { padding: 56px 24px; text-align: center; }
+    h1 { margin: 0; font-size: 2rem; }
+    .sub { color: #555; margin-top: 8px; }
+    main { max-width: 960px; margin: 0 auto; padding: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 16px; }
+    .card { border: 1px solid #eee; border-radius: 12px; padding: 16px; }
+    .card h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .pill { display:inline-block; padding:2px 8px; border-radius:999px; background:#f3f4f6; font-size:.8rem; margin-right:6px; }
+    footer { text-align:center; color:#777; padding:32px 16px; }
+    a { color:#0366d6; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Austin Hong</h1>
+    <p class="sub">Supply Chain Planning • SAP IBP • SQL • Tableau</p>
+  </header>
+  <main>
+    <h2>Projects</h2>
+    <div id="projects" class="grid"></div>
+
+    <h2>About</h2>
+    <p>USC grad with SAP IBP certification. I build supply chain planning and analytics tools (ABC/XYZ, safety stock, S&OP dashboards, Tableau/SQL pipelines).</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:you@example.com">you@example.com</a> · <a href="https://www.linkedin.com/in/yourhandle">LinkedIn</a> · <a href="https://github.com/your-username">GitHub</a></p>
+  </main>
+  <footer>© <span id="year"></span> Austin Hong</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+fetch('projects.json')
+  .then(r => r.json())
+  .then(items => {
+    const root = document.getElementById('projects');
+    items.forEach(p => {
+      const el = document.createElement('article');
+      el.className = 'card';
+      el.innerHTML = `
+        <h3><a href="${p.link}" target="_blank" rel="noopener">${p.title}</a></h3>
+        <p>${p.blurb}</p>
+        <div>${p.tags.map(t=>`<span class="pill">${t}</span>`).join('')}</div>
+      `;
+      root.appendChild(el);
+    });
+  })
+  .catch(()=>{ document.getElementById('projects').innerHTML = '<p>Add a projects.json file to populate this section.</p>'; });
+</script>
+</body>
+</html>
